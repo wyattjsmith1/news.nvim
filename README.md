@@ -16,7 +16,7 @@ Install this package with whatever package manager you want. Be sure to include 
 ```lua
 use {
   "wyattjsmith1/news.nvim",
-  requires {
+  requires = {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
   }
