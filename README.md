@@ -1,6 +1,8 @@
 # news.nvim
 A nifty plugin to get the latest news articles in a second powered by Telescope.
 
+![screencast](https://github.com/wyattjsmith1/news.nvim/blob/main/assets/screenrecording.gif)
+
 # Features
 - Load the latest headlines from multiple sources.
 - View a snippet in Telescope's previewer.
