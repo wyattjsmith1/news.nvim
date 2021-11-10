@@ -67,14 +67,14 @@ These news sources can be used easily out-of-the-box.
 #### [The New York Times](https://developer.nytimes.com/apis)
 | Field | Notes |
 | ----- | ----- |
-| `api_key` | Required. The api key from the Ny Times website. |
-| `section` | Defaults to `"home"` if none is provided. Look at the [Top Stories](https://developer.nytimes.com/docs/top-stories-product/1/routes/%7Bsection%7D.json/get) endpoint documentation for possible values |
+| `api_key` (string) | Required. The api key from the Ny Times website. |
+| `section` (string) | Defaults to `"home"` if none is provided. Look at the [Top Stories](https://developer.nytimes.com/docs/top-stories-product/1/routes/%7Bsection%7D.json/get) endpoint documentation for possible values |
 
 #### [News Api](https://newsapi.org/)
 | Field | Notes |
 | ----- | ----- |
-| `api_key` | Required. The api key from the News Api website. |
-| `country` | Required. The country code to fetch articles for. See the [Top Headlines](https://newsapi.org/docs/endpoints/top-headlines) api reference for possible values.
+| `api_key` (string) | Required. The api key from the News Api website. |
+| `country` (string) | Required. The country code to fetch articles for. See the [Top Headlines](https://newsapi.org/docs/endpoints/top-headlines) api reference for possible values.
 
 
 ## Adding custom news sources
@@ -82,4 +82,8 @@ Additionally, you can add your own news sources with a bit of lua. The `setup` c
 
 ## Contributing a source
 Like many projects, contributions are always appreciated. If you want to add a news source, simply create a new file: `lua/news/sources/my_new_source.lua`. It should provide a `new` function which takes parameters for this source and returns a table with a `fetch_headlines` function. Read more details in `lua/news/init.lua`. 
+
+# Roadmap
+- [ ] Dynamically search through news sources
+- [ ] Stabilize API
 
