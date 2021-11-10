@@ -1,3 +1,5 @@
+-- Returns a table with:
+-- `open_articles` (array of Article): Opens a list of articles in telescope.
 local pickers = require "telescope.pickers"
 local finders = require "telescope.finders"
 local conf = require("telescope.config").values
