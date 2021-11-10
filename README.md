@@ -1,6 +1,8 @@
 # news.nvim
 A nifty plugin to get the latest news articles in a second powered by Telescope.
 
+_(Sorry, the gif plays slow. It's much faster than this)_
+
 ![screencast](https://github.com/wyattjsmith1/news.nvim/blob/main/assets/screenrecording.gif)
 
 # Features
