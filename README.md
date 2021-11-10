@@ -1,4 +1,4 @@
-# news-nvim
+# news.nvim
 A nifty plugin to get the latest news articles in a second powered by Telescope.
 
 # Features
@@ -8,7 +8,7 @@ A nifty plugin to get the latest news articles in a second powered by Telescope.
 
 # Setup
 ### Install
-Install this package with whatever package manager you want. Be sure to include [plenary](https://github.com/nvim-lua/plenary.nvim) and [telescope](https://github.com/nvim-telescope/telescope.nvim) as `news-nvim` is dependent on both.
+Install this package with whatever package manager you want. Be sure to include [plenary](https://github.com/nvim-lua/plenary.nvim) and [telescope](https://github.com/nvim-telescope/telescope.nvim) as `news.nvim` is dependent on both.
 ```lua
 use {
   "wyattjsmith/news.nvim",
