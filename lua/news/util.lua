@@ -15,4 +15,11 @@ result.get_app_id = function(app_id)
   end
 end
 
+result.vim_nil_to_nil = function(value)
+  if value == vim.NIL then
+    return nil
+  end
+  return value
+end
+
 return result

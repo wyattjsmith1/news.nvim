@@ -5,10 +5,10 @@ local function nyt_to_article(nyt_articles)
   local result = {}
   for k, v in pairs(nyt_articles) do
     result[k] = {
-      title = v.title,
-      url = v.short_url,
-      abstract = v.abstract,
-      byline = v.byline,
+      title = util.vim_nil_to_nil(v.title),
+      url = util.vim_nil_to_nil(v.short_url),
+      abstract = util.vim_nil_to_nil(v.abstract),
+      byline = util.vim_nil_to_nil(v.byline),
       source = "New York Times",
     }
   end
