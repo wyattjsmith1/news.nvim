@@ -1,4 +1,5 @@
 local curl = require'plenary.curl'
+local util = require'news.util'
 
 local function nyt_to_article(nyt_articles)
   local result = {}
@@ -18,7 +19,7 @@ local function fetch_headlines(args, callback)
   curl.get{
     url = 'https://api.nytimes.com/svc/topstories/v2/'..(args.section or 'home')..'.json',
     query = {
-      ['api-key'] = args.api_key,
+      ['api-key'] = util.get_app_id(args.api_key),
     },
     callback = function(response)
       vim.schedule(function()

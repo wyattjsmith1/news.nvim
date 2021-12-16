@@ -35,11 +35,11 @@ Below is an examle configuration that configures all avaliable news sources:
 ```lua
 require'news'.setup {
   require'news.sources.new_york_times'.new {
-    api_key = 'nyt_api_key',
+    api_key = { value = 'nyt_api_key' },
     section = 'home',
   },
   require'news.sources.news_api'.new {
-    api_key = 'news_api_key',
+    api_key = { value = 'news_api_key' },
     country = 'us'
   },
 }
@@ -66,18 +66,28 @@ Optionally, you can create a command with:
 `news.nvim` is designed so that users can select their own news sources to fetch articles from. As of now, there are only 2, but more are always welcome!
 
 ## Built in news sources
-These news sources can be used easily out-of-the-box.
+These news sources can be used easily out-of-the-box. 
+
+##### `AppId`
+Most configuration requires an `AppId` defined here:
+```lua
+{
+  value = "my key", -- A string literal for the api key.
+  var_name = "SOME_ENV_VAR", -- An alternative to `value` which lets you store your key in an environment variable.
+}
+```
+This prioritizes the key stored in `var_name` (if there is one).
 
 #### [The New York Times](https://developer.nytimes.com/apis)
 | Field | Notes |
 | ----- | ----- |
-| `api_key` (string) | Required. The api key from the Ny Times website. |
+| `api_key` `AppId` | Required. The api key from the Ny Times website. |
 | `section` (string) | Defaults to `"home"` if none is provided. Look at the [Top Stories](https://developer.nytimes.com/docs/top-stories-product/1/routes/%7Bsection%7D.json/get) endpoint documentation for possible values |
 
 #### [News Api](https://newsapi.org/)
 | Field | Notes |
 | ----- | ----- |
-| `api_key` (string) | Required. The api key from the News Api website. |
+| `api_key` `AppId | Required. The api key from the News Api website. |
 | `country` (string) | Required. The country code to fetch articles for. See the [Top Headlines](https://newsapi.org/docs/endpoints/top-headlines) api reference for possible values.
 
 
