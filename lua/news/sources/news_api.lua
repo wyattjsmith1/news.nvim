@@ -5,11 +5,11 @@ local function news_api_to_article(nyt_articles)
   local result = {}
   for k, v in pairs(nyt_articles) do
     result[k] = {
-      title = v.title,
-      url = v.url,
-      abstract = v.description,
-      byline = v.author,
-      source = v.source.name,
+      title = util.vim_nil_to_nil(v.title),
+      url = util.vim_nil_to_nil(v.url),
+      abstract = util.vim_nil_to_nil(v.description),
+      byline = util.vim_nil_to_nil(v.author),
+      source = util.vim_nil_to_nil(v.source.name),
     }
   end
   return result
