@@ -15,17 +15,21 @@ local function news_api_to_article(nyt_articles)
 end
 
 
-local function fetch_headlines(args)
-  local response = curl.get{
+local function fetch_headlines(args, callback)
+  curl.get{
     url = 'https://newsapi.org/v2/top-headlines',
     query = {
       apiKey = args.api_key,
       country = args.country,
-    }
+    },
+    callback = function(response)
+      vim.schedule(function()
+        assert(response.exit == 0 and response.status < 400 and response.status >= 200, "Failed to fetch News Api articles")
+        local response_table = vim.fn.json_decode(response.body)
+        callback(news_api_to_article(response_table.articles))
+      end)
+    end,
   }
-  assert(response.exit == 0 and response.status < 400 and response.status >= 200, "Failed to fetch News Api articles")
-  local response_table = vim.fn.json_decode(response.body)
-  return news_api_to_article(response_table.articles)
 end
 
 local function new(args)
@@ -33,7 +37,7 @@ local function new(args)
   assert(args.country, "No `country` provided for News Api")
 
   return {
-    fetch_headlines = function() return fetch_headlines(args) end,
+    fetch_headlines = function(callback) return fetch_headlines(args, callback) end,
   }
 end
 

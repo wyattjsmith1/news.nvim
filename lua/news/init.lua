@@ -8,8 +8,6 @@
 --   abstract (string): The abstract the article provides.
 --   byline (string): The credits for the article.
 --   source (string): The name of the news prodider. For single news providers (e.g. NY Times, CNN) this should always be the same. For aggregate providers, this should be the true publisher if possible.
-local async = require'plenary.async.async'
-
 local news = {}
 
 -- Fetches headlines for a list of news sources and returns them async.
@@ -19,7 +17,7 @@ local news = {}
 local fetch_headlines = function(news_configuration, callback)
   for _, source in pairs(news_configuration) do
     if source.fetch_headlines then
-      async.run(function() return source.fetch_headlines() end, callback)
+      source.fetch_headlines(callback)
     end
   end
 end

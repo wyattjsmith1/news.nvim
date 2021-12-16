@@ -13,10 +13,10 @@ local telescope = {}
 
 local function generate_preview(article)
   return {
-    article.title,
-    article.byline,
+    article.title or "",
+    article.byline or "",
     "",
-    article.abstract,
+    article.abstract or "",
   }
 end
 
@@ -33,10 +33,10 @@ local function previewer(articles)
       local article = articles[entry.index]
       vim.api.nvim_buf_set_lines(
         self.state.bufnr,
-	0, -- From the start of the buffer
-	-1, -- To the end
-	true,
-	generate_preview(article)
+        0, -- From the start of the buffer
+        -1, -- To the end
+        true,
+        generate_preview(article)
       )
     end
   }
