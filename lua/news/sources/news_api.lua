@@ -1,4 +1,5 @@
 local curl = require'plenary.curl'
+local util = require'news.util'
 
 local function news_api_to_article(nyt_articles)
   local result = {}
@@ -19,7 +20,7 @@ local function fetch_headlines(args, callback)
   curl.get{
     url = 'https://newsapi.org/v2/top-headlines',
     query = {
-      apiKey = args.api_key,
+      apiKey = util.get_app_id(args.api_key),
       country = args.country,
     },
     callback = function(response)
